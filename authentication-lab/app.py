@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask import session as login_session
 import pyrebase
+import datetime
 
 config = {
   "apiKey": "AIzaSyAuw7ZoeAE7YKkDuWbhjJ-3KEG8dPnIqME",
@@ -59,13 +60,14 @@ def signup():
 
 @app.route('/add_tweet', methods=['GET', 'POST'])
 def add_tweet():
+    x = datetime.datetime.now()
     if request.method == 'POST':
         try:
-            #tweet = {"name": request.form['name'], "title": request.form[title], "text": request.form[text], "uid": request.form[databaseURL]}
             tweet = {
             "title": request.form['title'], 
             "text": request.form['text'], 
-            "uid": login_session['user']['localId']}
+            "uid": login_session['user']['localId'],
+            "date_time": x}
             db.child("Tweets").push(tweet)
             return redirect(url_for('all_tweets'))
         except:
