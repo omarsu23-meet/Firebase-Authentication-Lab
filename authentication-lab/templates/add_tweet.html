@@ -6,6 +6,27 @@
 </head>
 <body>
     Great Job!
-    <button onclick="">signout</button>
+    <a href="/"><button>signout</button></a>
+    <br>
+    <br>
+    <form method = "POST" action="/add_tweet">
+        <div>
+            <label>Title</label>
+            <div>
+                <input type="title" name="title">
+            </div>
+        </div>
+
+        <div>
+            <label>Text</label>
+            <div>
+                <input type="text" name="text">
+            </div>
+        </div>
+
+        <div>
+            <a href="/all_tweets"><input type="submit"/></a>
+        </div>
+    </form>
 </body>
 </html>
