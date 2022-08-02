@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask import session as login_session
 import pyrebase
-import datetime
 
 config = {
   "apiKey": "AIzaSyAuw7ZoeAE7YKkDuWbhjJ-3KEG8dPnIqME",
@@ -60,7 +59,6 @@ def signup():
 
 @app.route('/add_tweet', methods=['GET', 'POST'])
 def add_tweet():
-    x = datetime.datetime.now()
     if request.method == 'POST':
         try:
             tweet = {
